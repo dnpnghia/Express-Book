@@ -64,6 +64,9 @@ app.use("/cart", cartRoute);
 app.use("/transactions", usersMiddleware.requireAuth, transactionRoute);
 
 
+router.get('/', (req, res) => {
+  response.render("index");
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -84,6 +87,6 @@ app.listen(port,function(){
   console.log("Server listening connect port " + port)
 })
 
-app.use('/.netlify/functions/server', authRoute); 
+app.use('/.netlify/functions/server', router); 
 module.exports = app;
 module.exports.handler = serverless(app);
