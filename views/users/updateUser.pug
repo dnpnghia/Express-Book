@@ -1,0 +1,9 @@
+extends ../layouts/common
+block content
+  h1 Update #{user.name}
+  form(action='/users/update/' + user.id, method="post")
+    .form-group
+      label(for='title') New Name:
+      input#title.form-control(type='text', name='name')
+
+    button.btn.btn-primary Update

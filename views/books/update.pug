@@ -1,0 +1,12 @@
+extends ../layouts/common
+block content
+  h1 Update #{book.title}
+  form(action='/books/update/' + book.id, method="POST")
+    .form-group
+      label(for='title') New Title:
+      input#title.form-control(type='text', name='title')
+      p(for='') Image cover:
+      img(src=book.image, alt='Logo', width='300px')
+      p.mt-2
+        a.badge.badge-info(href='/books/update/' + book.id + "/cover") Change cover
+    button.btn.btn-primary Update

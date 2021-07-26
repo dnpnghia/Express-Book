@@ -1,0 +1,117 @@
+/* this file is loaded by index.html and styles the page */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Baloo 2", cursive;
+  margin: 2em 1em;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-style: italic;
+  color: #b40d3f;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+form {
+  background-color: #eee;
+  display: grid;
+  grid-gap: 1em;
+  padding: 1em;
+  max-width: 40ch;
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form button {
+  background-color: #bbbbf2;
+  border: 2px solid currentColor;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: lavender;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+
+.truncate {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.count-product {
+  font-size: 0.8875rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  line-height: 11px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  padding: 4px;
+  background: #161619;
+  display: inline-block;
+}
+
+.card-body {
+  position: relative;
+  height : 12rem;
+}
+
+.card-img-top {
+  width: 50%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card-text { 
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box {
+  display : flex;
+  justify-content : center;
+  height : 240px;
+}
+
+.book-button {
+  position: absolute;
+  bottom: 0px;
+}
+.badge-primary {
+  margin-bottom: 25px;
+  padding: 15px 20px; 
+  
+}
+.badge-info {
+  
+  padding: 15px 20px; 
+}

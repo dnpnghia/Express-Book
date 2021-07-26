@@ -1,0 +1,46 @@
+extends ../layouts/common
+block content
+  h1 Books
+  .container
+    .row.justify-content-center
+      each book in books
+        .card.m-2(style='width: 18rem;')
+          .box
+            img.card-img-top(src=book.image, alt='Card image cap')
+          .card-body
+            h5.card-title=book.title
+            p.card-text=book.description
+            .book-button
+              a.btn.btn-primary.mb-2(href='cart/add/' + book.id) Add to cart
+              p
+                a.badge.badge-secondary(href='shops/' + shops[x].id)=shops[x].name
+            p.d-none=++x
+    
+
+    case page
+      when 1
+        nav(aria-label='Page navigation example')
+          ul.pagination
+            li.disabled.page-item
+              a.page-link(href='/books?page=' + (page-1)) Previous
+            li.active.page-item
+              a.page-link(href='/books?page=' + page)=page
+            li.page-item
+              a.page-link(href='/books?page=' + (++page))=(page)
+            li.page-item
+              a.page-link(href='/books?page=' + (++page))=(page)
+            li.page-item
+              a.page-link(href='/books?page=' + (page-1)) Next
+      default
+        nav(aria-label='Page navigation example')
+          ul.pagination
+            li.page-item
+              a.page-link(href='/books?page=' + (page-1)) Previous
+            li.active.page-item
+              a.page-link(href='/books?page=' + page)=page
+            li.page-item
+              a.page-link(href='/books?page=' + (++page))=(page)
+            li.page-item
+              a.page-link(href='/books?page=' + (++page))=(page)
+            li.page-item
+              a.page-link(href='/books?page=' + (page-1)) Next

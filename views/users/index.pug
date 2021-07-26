@@ -1,0 +1,35 @@
+extends ../layouts/common
+block content
+  h1 User
+  h5= "Hello " + user.name
+  if errors
+    each error in errors
+      .alert.alert-danger(role='alert')=error
+  a.mr-2.badge.badge-primary(href="user/profile") Profile
+  if !user.shopId
+    a.badge.badge-info(href="shops/create") Start your bussiness
+  if user.shopId
+    a.badge.badge-primary(href="shops/") Shop management
+  
+  table.table
+    tr
+      th Name
+      th Cart
+      th 
+    tr
+      td= user.name
+      td= user.cart
+  if users
+    table.table
+      tr
+        th Name
+        th Cart
+        th 
+      if users
+        each user in users
+          tr
+            td= user.name
+            td= user.cart
+            td
+              a.btn.btn-primary.btn-sm(href="/user/update/" + user.id) Update
+              a.btn.btn-danger.btn-sm(href="/user/delete/" + user.id) Delete

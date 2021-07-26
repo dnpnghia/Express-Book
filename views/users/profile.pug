@@ -1,0 +1,25 @@
+extends ../layouts/common
+block content
+
+
+  h1 Hello #{user.name}
+  form(action='/user/profile/', method="POST", enctype='multipart/form-data')
+    .form-group
+
+     label(for='Avatar') 
+      .imgAva
+      img( src=user.avatar, alt='Logo', width='150px', height='150px')
+      p.mt-2
+        a.badge.badge-info(href='/user/profile/avatar') Change avatar
+      label(for='title') Name:
+      input#title.form-control(type='text', name='name', value=user.name)
+   
+      label(for='Email') Email:
+      input#Email.form-control(type='text', name='email', value=user.email)
+
+      label(for='Password') Password:
+      input#Password.form-control(type='password',name='password', value=user.password, disabled="disabled")
+      a.badge.badge-info(href='#') Change password
+
+     
+    button.btn.btn-primary Update

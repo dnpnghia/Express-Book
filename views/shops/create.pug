@@ -1,0 +1,11 @@
+extends ../layouts/common
+block content 
+  h1 Start your bussiness
+
+  form(action='/shops/create', method="POST")
+    .form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', name='name', enctype='multipart/form-data')
+      label(for='des') Description:
+      input#des.form-control(type='text', name='description')
+    button.btn.btn-primary Add

@@ -1,0 +1,25 @@
+extends ../layouts/common
+block content
+  h1= "Hello " + shop.name
+  if errors
+    each error in errors
+      .alert.alert-danger(role='alert')=error
+  //- a.mr-2.badge.badge-primary(href="user/profile") Profile
+  a.badge.badge-primary(href="/books/create") Add new book
+  if books
+    table.table
+      tr
+        th Title
+        th Description
+        th
+        th 
+      each book in books
+        tr
+          td(width='250px')= book.title
+          td
+            p.truncate=book.description
+          td(width='100px')
+            img.img-thumbnail(src=book.image, alt='Card image cap', width='80px')
+          td
+            a.btn.btn-primary.btn-sm(href="/books/update/" + book.id) Update
+            a.btn.btn-danger.btn-sm(href="/books/delete/" + book.id) Delete

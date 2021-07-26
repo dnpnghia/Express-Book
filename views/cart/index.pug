@@ -1,0 +1,35 @@
+extends ../layouts/common
+block content
+  .d-flex.justify-content-center.flex-column.align-items-center
+    h1.text-center Cart
+    h2.text-center #{total} item in cart
+
+    if errors
+       each error in errors
+         .alert.alert-danger(role='alert')=error
+    if success
+       each succes in success
+         .alert.alert-success(role='alert')=succes
+
+    .container-fluid
+      .row
+        if books
+            table.table
+              thead
+                tr
+                  th(scope='col') PRODUCT
+                  th(scope='col')
+                  th(scope='col') TOTAL
+                  th(scope='col')
+              tbody
+                each book in books
+                    tr
+                      td=book.title
+                      td 
+                        img.img-thumbnail(src=book.image, alt='Card image cap', height='200px', width='150px')
+                      td=book.price
+                      td
+                        .d-flex.flex-column  
+                          a.btn.btn-outline-danger(href='/cart/delete/' + book.id, role='button') Delete
+                        p.d-none=++x
+    a.btn.btn-primary.btn-sm.mb-2(href="cart/hire/", style='width: 8rem;') Hire

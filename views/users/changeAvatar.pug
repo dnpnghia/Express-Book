@@ -1,0 +1,11 @@
+extends ../layouts/common
+block content 
+  h1 Change avatar for #{user.name}
+  if errors
+    each error in errors
+      .alert.alert-danger(role='alert')=error
+  form(action='/user/profile/avatar/' + user.id, method="post", enctype='multipart/form-data')
+    .form-group
+      label(for='Avatar') Avatar:
+      input#Avatar.form-control(type="file", name="avatar")
+      button.btn.btn-primary Add
