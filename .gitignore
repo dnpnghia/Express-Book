@@ -50,7 +50,6 @@ Thumbs.db
 *.wmv
 
 # local file
-package-lock.json
 .vscode
 
 # private file
