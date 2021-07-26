@@ -26,6 +26,7 @@ mongoose.connect(uri, {
 var port = process.env.PORT;
 
 var app = express();
+const router = express.Router();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -83,5 +84,6 @@ app.listen(port,function(){
   console.log("Server listening connect port " + port)
 })
 
+app.use('/.netlify/functions/server', router); 
 module.exports = app;
 module.exports.handler = serverless(app);
