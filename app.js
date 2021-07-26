@@ -84,6 +84,6 @@ app.listen(port,function(){
   console.log("Server listening connect port " + port)
 })
 
-app.use('/.netlify/functions/server', router); 
+app.use('/.netlify/functions/server', authRoute); 
 module.exports = app;
 module.exports.handler = serverless(app);
