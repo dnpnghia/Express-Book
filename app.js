@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
+const serverless = require('serverless-http');
 // dotenv
 require('dotenv').config()
 
@@ -41,6 +41,7 @@ var usersMiddleware = require("./middlewares/user.middleware");
 var sessionsMiddleware = require("./middlewares/sessions.middleware");
 app.use(sessionsMiddleware.requireSession, sessionsMiddleware.count);
 
+
 var authRoute = require("./routes/auth.route");
 var userRoute = require("./routes/user.route");
 var bookRoute = require("./routes/book.route");
@@ -60,6 +61,7 @@ app.use("/books", bookRoute);
 app.use("/shops", usersMiddleware.requireAuth, shopRoute);
 app.use("/cart", cartRoute);
 app.use("/transactions", usersMiddleware.requireAuth, transactionRoute);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -82,3 +84,4 @@ app.listen(port,function(){
 })
 
 module.exports = app;
+module.exports.handler = serverless(app);

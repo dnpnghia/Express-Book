@@ -51,7 +51,7 @@ Thumbs.db
 
 # local file
 .vscode
-
+package-lock.json
 # private file
 private
 ssh-keys
