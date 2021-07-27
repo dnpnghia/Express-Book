@@ -52,7 +52,6 @@ Thumbs.db
 # local file
 .vscode
 package-lock.json
-functions
 
 # private file
 private
