@@ -24,10 +24,10 @@ mongoose.connect(uri, {
 .then(() => console.log("Database connected!"))
 .catch(err => console.log(err));
 
-var port = process.env.PORT;
+var port = process.env.PORT || 8080;
 
 var app = express();
-const router = express.Router();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -52,8 +52,8 @@ var cartRoute = require("./routes/cart.route");
 var transactionRoute = require("./routes/transaction.route");
 
 // basic-routing
-app.get("/", (request, response) => {
-  response.render("index");
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 
@@ -64,10 +64,6 @@ app.use("/shops", usersMiddleware.requireAuth, shopRoute);
 app.use("/cart", cartRoute);
 app.use("/transactions", usersMiddleware.requireAuth, transactionRoute);
 
-
-router.get('/', (req, res) => {
-  response.render("index");
-});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -88,6 +84,4 @@ app.listen(port,function(){
   console.log("Server listening connect port " + port)
 })
 
-app.use('/.netlify/functions/server', router); 
 module.exports = app;
-module.exports.handler = serverless(app);
