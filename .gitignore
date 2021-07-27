@@ -50,6 +50,7 @@ Thumbs.db
 *.wmv
 
 # local file
+.env
 .vscode
 package-lock.json
 
